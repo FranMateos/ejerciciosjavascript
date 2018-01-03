@@ -92,15 +92,37 @@ function pedirNumeros() {
         dato1 = pedirDato();
         dato2 = pedirDato();
         try {
-        if (dato1 == "" || dato2 == ""){
-            throw "vacío";}
-        if (isNaN(dato1) || isNaN(dato2)){
-            throw "no es un número";}
+            if (dato1 == "" || dato2 == "") {
+                throw "vacío";
+            }
+            if (isNaN(dato1) || isNaN(dato2)) {
+                throw "no es un número";
+            }
             dato1 = Number(dato1);
             dato2 = Number(dato2);
             return [dato1, dato2];
         } catch (err) {
             alert("Los datos introducidos no son correctos");
+        }
+    }
+}
+
+function pedirNumero() {
+
+    var dato1;
+    while (true) {
+        dato1 = pedirDato();
+        try {
+            if (dato1 == "") {
+                throw "vacío";
+            }
+            if (isNaN(dato1)) {
+                throw "no es un número";
+            }
+            dato1 = Number(dato1);
+            return dato1;
+        } catch (err) {
+            alert("Debe introducir un número");
         }
     }
 }
@@ -114,4 +136,62 @@ function suma() {
 function mayor() {
     var numeros = pedirNumeros();
     alert("El mayor es: " + Math.max(numeros[0], numeros[1]));
+}
+
+function dividir() {
+
+    var tabla = document.getElementById("tabla");
+    var numero = pedirNumero();
+    if (numero >= 2) {
+        var row = document.createElement("tr");
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode(numero + " : 2 = " + (numero / 2));
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+        tabla.appendChild(row);
+        if (numero >= 4) {
+            var row = document.createElement("tr");
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(numero + " : 4 = " + (numero / 4));
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            tabla.appendChild(row);
+            if (numero >= 8) {
+                var row = document.createElement("tr");
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(numero + " : 8 = " + (numero / 8));
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                tabla.appendChild(row);
+            }
+        }
+    }
+}
+
+function paridad(numero) {
+    alert("El numero es: " + ((numero % 2 == 0) ? "par" : "impar"));
+}
+
+function cuentaAtras(numero) {
+        var intervalo=setInterval(function (){contador(numero--, intervalo)}, 1000);
+}
+
+function contador(numero, intervalo) {
+    if(numero>=0){
+    var tabla = document.getElementById('tabla');
+    tabla.innerHTML = '';
+    var row = document.createElement('tr');
+    var cell = document.createElement('td');
+    var header = document.createElement('h1');
+    var headerText = document.createTextNode(numero);
+    header.appendChild(headerText);
+    cell.appendChild(header);
+    row.appendChild(cell);
+    tabla.appendChild(row);
+    numero--;
+    }else{
+        clearInterval(intervalo);
+    }
+    console.log("numero vale: " + numero);
+
 }
