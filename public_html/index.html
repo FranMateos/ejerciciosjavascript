@@ -12,11 +12,13 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="./css/normalize.css"/>
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
         <script type="text/javascript" src="./js/funciones.js"></script>
+        <script type="text/javascript" src="./js/numeros.js"></script>
+        <script type="text/javascript" src="./js/buleanos.js"></script>
     </head>
     <body>
         <table style="width: 48%;float: left;" id="tabla_buleanos">
             <tr>
-                <th>
+                <th colspan="2">
                     <h2>Buleanos</h2>
                 </th>
             </tr>
@@ -29,7 +31,7 @@ and open the template in the editor.
                 <td><input type="submit" onclick="conectoresLogicos()" title="Pulsar"/></td>
             </tr>
             <tr>
-                <th>
+                <th colspan="2">
                     <h2>Números</h2>
                 </th>
             </tr>
@@ -52,6 +54,10 @@ and open the template in the editor.
             <tr>
                 <td>Ejercicio 5</td>
                 <td><input type="submit" onclick="cuentaAtras(pedirNumero())" title="Pulsar"/></td>
+            </tr>
+            <tr>
+                <td>Ejercicio 6</td>
+                <td><input type="submit" onclick="menor(pedirNumeroMensaje('Introduce la cantidad de números: '))" title="Pulsar"/></td>
             </tr>
         </table>
         <table id="tabla">
